@@ -1,0 +1,8 @@
+rootProject.name='MultiModuleTemplate'
+include ':app'
+include ':libraries:navigation'
+include ':features:payment'
+include ':features:cardactivation'
+include ':features:profile'
+include ':features:transactions'
+include ':libraries:core'
