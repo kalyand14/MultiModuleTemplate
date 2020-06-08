@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_card_activation"
+    app:startDestination="@id/card_activation_fragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/card_activation_fragment"
+        android:name="com.android.multimoduletemplate.cardactivation.CardActivationFragment"
+        android:label="Card Activation"
+        tools:layout="@layout/fragment_card_activation">
+        <deepLink app:uri="myApp://cardActivation" />
+        <action
+            android:id="@+id/action_cardActivationFragment_to_cardActivationCompleteFragment"
+            app:destination="@id/card_activation_complete_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/card_activation_complete_fragment"
+        android:name="com.android.multimoduletemplate.cardactivation.CardActivationCompleteFragment"
+        android:label="Card Activation complete"
+        tools:layout="@layout/fragment_card_activation_complete" />
+</navigation>

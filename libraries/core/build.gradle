@@ -27,14 +27,20 @@ android {
 
 dependencies {
     api Deps.kotlin_stdlib
+    api Deps.google_material
     // App Dependencies
     api Androidx.appcompat
+    api Androidx.legacy_support
     api Androidx.core
     api Androidx.constraintlayout
+    api Androidx.navigation_fragment_ktx
+    api Androidx.navigation_ui_ktx
+
+
     // JVM Unit testing
-    testApi Jvm.junit
+    testImplementation Jvm.junit
     //Instrumentation testing
-    androidTestApi AndroidxTest.junit
-    androidTestApi AndroidxTest.espresso_core
+    androidTestImplementation AndroidxTest.junit
+    androidTestImplementation AndroidxTest.espresso_core
 }
 

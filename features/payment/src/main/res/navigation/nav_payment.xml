@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_payment"
+    app:startDestination="@id/payment_fragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/payment_fragment"
+        android:name="com.android.multimoduletemplate.payment.PaymentFragment"
+        android:label="Payment"
+        tools:layout="@layout/fragment_payment" >
+        <deepLink app:uri="myApp://payment"/>
+        <action
+            android:id="@+id/action_paymentFragment_to_paymentCompleteFragment"
+            app:destination="@id/payment_complete_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/payment_complete_fragment"
+        android:name="com.android.multimoduletemplate.payment.PaymentCompleteFragment"
+        android:label="Payment Complete"
+        tools:layout="@layout/fragment_payment_complete" />
+</navigation>

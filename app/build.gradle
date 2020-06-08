@@ -72,4 +72,7 @@ android {
 dependencies {
     implementation project(":libraries:core")
     implementation project(":libraries:navigation")
+    implementation project(":features:cardactivation")
+    implementation project(":features:payment")
+    implementation project(":features:profile")
 }
