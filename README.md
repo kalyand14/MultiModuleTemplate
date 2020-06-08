@@ -9,4 +9,6 @@ Navigation using root coordinator - https://medium.com/@jdmccormack63/android-ar
 
 Architecture - https://dzone.com/articles/android-app-architecture-modularization-clean-arch
 
+Architecture - Paid App walkthru - https://medium.com/androiddevelopers/a-patchwork-plaid-monolith-to-modularized-app-60235d9f212e
+
 Dependency Management - https://www.coroutinedispatcher.com/2019/11/modularizing-your-android-app-breaking.html
