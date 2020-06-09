@@ -12,3 +12,7 @@ Architecture - https://dzone.com/articles/android-app-architecture-modularizatio
 Architecture - Paid App walkthru - https://medium.com/androiddevelopers/a-patchwork-plaid-monolith-to-modularized-app-60235d9f212e
 
 Dependency Management - https://www.coroutinedispatcher.com/2019/11/modularizing-your-android-app-breaking.html
+
+Material Design 
+	https://github.com/material-components/material-components-android/blob/master/docs/theming/Color.md
+	https://github.com/material-components/material-components-android
