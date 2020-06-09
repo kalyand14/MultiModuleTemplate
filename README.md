@@ -18,3 +18,5 @@ Material Design
 	https://github.com/material-components/material-components-android
 	
 App asset generator - https://romannurik.github.io/AndroidAssetStudio/index.html
+
+Splash Screen - https://medium.com/@shishirthedev/the-right-way-to-implement-a-splash-screen-in-android-acae0e52949a
