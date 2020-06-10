@@ -20,3 +20,14 @@ Material Design
 App asset generator - https://romannurik.github.io/AndroidAssetStudio/index.html
 
 Splash Screen - https://medium.com/@shishirthedev/the-right-way-to-implement-a-splash-screen-in-android-acae0e52949a
+
+ViewBinding Deletegate - https://medium.com/@Zhuinden/simple-one-liner-viewbinding-in-fragments-and-activities-with-kotlin-961430c6c07c
+
+
+Issues 
+
+how to user the FragmentContainerView with NavHostFragment
+http://www.javaear.com/question/59275009.html
+
+AppComonentFactory and FragmentFactory with Dagger inject
+https://www.droidcon.com/news-detail?content-id=/repository/collaboration/Groups/spaces/droidcon_hq/Documents/public/news/android-news/Injection%20into%20Android%20Component%E2%80%99s%20Constructors%20is%20real
