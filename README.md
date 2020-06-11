@@ -16,6 +16,7 @@ Dependency Management - https://www.coroutinedispatcher.com/2019/11/modularizing
 Material Design 
 	https://github.com/material-components/material-components-android/blob/master/docs/theming/Color.md
 	https://github.com/material-components/material-components-android
+	https://www.material.io/develop/android/components/top-app-bars/
 	
 App asset generator - https://romannurik.github.io/AndroidAssetStudio/index.html
 
