@@ -12,6 +12,8 @@ android {
         versionCode Versions.app_version_code
         versionName Versions.app_version_name
 
+        vectorDrawables.useSupportLibrary = true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
@@ -23,9 +25,25 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
 }
 
 dependencies {
+    api project(":libraries:domain")
+    api project(":libraries:navigation")
+
     api Deps.kotlin_stdlib
     api Deps.google_material
     // App Dependencies
@@ -36,6 +54,10 @@ dependencies {
     api Androidx.navigation_fragment_ktx
     api Androidx.navigation_ui_ktx
 
+    api Androidx.lifecycle_runtime
+    api Androidx.lifecycle_common
+    api Androidx.lifecycle_viewmodel
+    api Androidx.lifecycle_livedata
 
     // JVM Unit testing
     testImplementation Jvm.junit

@@ -7,4 +7,13 @@
     <string name="title_nav_home">Home</string>
     <string name="title_nav_payment">Payment</string>
     <string name="title_nav_profile">Profile</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="welcome_content">Multi Module Template</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="menu_nav_logout">Logout</string>
+
 </resources>

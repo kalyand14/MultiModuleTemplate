@@ -23,9 +23,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
-    implementation project(":libraries:core")
+    implementation Androidx.lifecycle_livedata
 }
+
+

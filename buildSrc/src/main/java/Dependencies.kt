@@ -3,6 +3,7 @@ object Versions {
     val app_version_name = "1.0"
 
     val kotlin = "1.3.72"
+    val kotlin_coroutines = "1.3.7"
 
     val build_minSdk = 23
     val build_compileSdk = 29
@@ -16,7 +17,7 @@ object Versions {
     val android_x_constraintlayout = "1.1.3"
     val android_x_legacy_support = "1.0.0"
     val android_x_navigation = "2.2.0"
-
+    val android_x_lifecycle = "2.2.0"
     val google_material = "1.1.0-alpha09"
 }
 
@@ -27,18 +28,25 @@ object Deps {
         "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.android_x_navigation}"
     val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     val google_material = "com.google.android.material:material:${Versions.google_material}"
+    val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlin_coroutines}"
+    val coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlin_coroutines}"
 }
 
 object Androidx {
     val appcompat = "androidx.appcompat:appcompat:${Versions.android_x_appcompat}"
     val core = "androidx.core:core-ktx:${Versions.android_x_core}"
-
     val constraintlayout =
         "androidx.constraintlayout:constraintlayout:${Versions.android_x_constraintlayout}"
     val legacy_support = "androidx.legacy:legacy-support-v4:${Versions.android_x_legacy_support}"
+
     val navigation_fragment_ktx =
         "androidx.navigation:navigation-fragment-ktx:${Versions.android_x_navigation}"
     val navigation_ui_ktx = "androidx.navigation:navigation-ui-ktx:${Versions.android_x_navigation}"
+
+    val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime:${Versions.android_x_lifecycle}"
+    val lifecycle_common = "androidx.lifecycle:lifecycle-common-java8:${Versions.android_x_lifecycle}"
+    val lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.android_x_lifecycle}"
+    val lifecycle_livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.android_x_lifecycle}"
 }
 
 object Dagger {

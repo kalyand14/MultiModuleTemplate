@@ -10,13 +10,10 @@ android {
         minSdkVersion Versions.build_minSdk
         targetSdkVersion Versions.build_targetSdk
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables.useSupportLibrary = true
+
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+
 
     android {
         sourceSets {
@@ -57,6 +54,15 @@ android {
         }
     }
 
+    viewBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8
     }
@@ -75,4 +81,7 @@ dependencies {
     implementation project(":features:cardactivation")
     implementation project(":features:payment")
     implementation project(":features:profile")
+    implementation project(":features:login")
+    implementation project(":features:onboarding")
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

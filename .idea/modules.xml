@@ -7,9 +7,12 @@
       <module fileurl="file://$PROJECT_DIR$/buildSrc/buildSrc.iml" filepath="$PROJECT_DIR$/buildSrc/buildSrc.iml" group="MultiModuleTemplate/buildSrc" />
       <module fileurl="file://$PROJECT_DIR$/features/cardactivation/cardactivation.iml" filepath="$PROJECT_DIR$/features/cardactivation/cardactivation.iml" group="MultiModuleTemplate/features/cardactivation" />
       <module fileurl="file://$PROJECT_DIR$/libraries/core/core.iml" filepath="$PROJECT_DIR$/libraries/core/core.iml" group="MultiModuleTemplate/libraries/core" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/domain/domain.iml" filepath="$PROJECT_DIR$/libraries/domain/domain.iml" group="MultiModuleTemplate/libraries/domain" />
       <module fileurl="file://$PROJECT_DIR$/features/features.iml" filepath="$PROJECT_DIR$/features/features.iml" group="MultiModuleTemplate/features" />
       <module fileurl="file://$PROJECT_DIR$/libraries/libraries.iml" filepath="$PROJECT_DIR$/libraries/libraries.iml" group="MultiModuleTemplate/libraries" />
+      <module fileurl="file://$PROJECT_DIR$/features/login/login.iml" filepath="$PROJECT_DIR$/features/login/login.iml" group="MultiModuleTemplate/features/login" />
       <module fileurl="file://$PROJECT_DIR$/libraries/navigation/navigation.iml" filepath="$PROJECT_DIR$/libraries/navigation/navigation.iml" group="MultiModuleTemplate/libraries/navigation" />
+      <module fileurl="file://$PROJECT_DIR$/features/onboarding/onboarding.iml" filepath="$PROJECT_DIR$/features/onboarding/onboarding.iml" group="MultiModuleTemplate/features/onboarding" />
       <module fileurl="file://$PROJECT_DIR$/features/payment/payment.iml" filepath="$PROJECT_DIR$/features/payment/payment.iml" group="MultiModuleTemplate/features/payment" />
       <module fileurl="file://$PROJECT_DIR$/features/profile/profile.iml" filepath="$PROJECT_DIR$/features/profile/profile.iml" group="MultiModuleTemplate/features/profile" />
       <module fileurl="file://$PROJECT_DIR$/features/transactions/transactions.iml" filepath="$PROJECT_DIR$/features/transactions/transactions.iml" group="MultiModuleTemplate/features/transactions" />

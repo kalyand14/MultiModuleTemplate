@@ -1,0 +1,6 @@
+<resources>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="login_msg">Please enter the passcode</string>
+    <string name="btn_login_title">Login</string>
+</resources>

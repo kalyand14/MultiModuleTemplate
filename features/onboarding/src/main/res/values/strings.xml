@@ -1,0 +1,7 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="onboarding_landing_msg">Welcome to onboarding feature</string>
+    <string name="onboarding_complete_msg">Successfully completed onboarding</string>
+    <string name="btn_continue_title">Continue</string>
+</resources>
