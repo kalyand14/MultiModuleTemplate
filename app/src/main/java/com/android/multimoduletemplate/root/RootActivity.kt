@@ -51,7 +51,7 @@ class RootActivity : AppCompatActivity() {
 
     private fun setNavGraph() {
         val graph = navController.navInflater.inflate(R.navigation.nav_root)
-        graph.startDestination = RootCoordinator.startDestination().buildEvent().navId
+        //graph.startDestination = RootCoordinator.startDestination().buildEvent().navId
         navController.graph = graph
     }
 

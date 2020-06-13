@@ -3,16 +3,15 @@ package com.android.multimoduletemplate.root
 import androidx.lifecycle.viewModelScope
 import com.android.multimoduletemplate.core.presentation.BaseViewModel
 import com.android.multimoduletemplate.core.presentation.SingleLiveEvent
-import com.android.multimoduletemplate.domain.session.AuthenticatedUser
-import com.android.multimoduletemplate.domain.session.OnBoardingStatus
-import com.android.multimoduletemplate.domain.session.UserManager
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import com.android.multimoduletemplate.domain.session.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
-class RootViewModel(
+@ExperimentalCoroutinesApi
+class RootViewModel constructor(
     private val coordinator: RootCoordinator,
-    private val userManager: UserManager? = UserManager()
+    private val userManager: UserManager? = UserManager
 ) : BaseViewModel() {
 
     val loggedOutEvent = SingleLiveEvent<Void>()
@@ -22,26 +21,30 @@ class RootViewModel(
     }
 
     fun subscribeObserver() {
-        viewModelScope.launch {
-            userManager?.user?.collect {
-                when (it) {
-                    is AuthenticatedUser -> {
+        userManager?.userState?.onEach {
+            when (it) {
+                is User.Authenticated -> {
+                    navigateTo(
                         when (it.onBoardingStatus) {
-                            OnBoardingStatus.COMPLETED -> navigateTo(RootCoordinator.dashBoardStartDestination())
-                            else -> navigateTo(RootCoordinator.onBoardingStartDestination())
+                            OnBoardingStatus.COMPLETED -> RootCoordinator.dashBoardStartDestination()
+                            else -> RootCoordinator.onBoardingStartDestination()
                         }
-                    }
-                    else -> {
-                        navigateTo(RootCoordinator.loginStartDestination())
-                    }
+                    )
+                }
+                is User.NotAuthenticated -> {
+                    navigateTo(
+                        when (it.regStatus) {
+                            RegStatus.OLD -> RootCoordinator.loginStartDestination()
+                            RegStatus.NEW -> RootCoordinator.onBoardingStartDestination()
+                        }
+                    )
                 }
             }
-        }
-
+        }?.launchIn(viewModelScope)
     }
 
     fun logout() {
-        navigateTo(RootCoordinator.loginStartDestination())
+        userManager?.onEvent(UserEvent.Logout)
     }
 
 

@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import com.android.multimoduletemplate.core.presentation.BaseFragment
 import com.android.multimoduletemplate.core.presentation.viewBinding
 import com.android.multimoduletemplate.login.databinding.FragmentLoginBinding
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
 /**
@@ -17,11 +18,7 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
     private val binding by viewBinding(FragmentLoginBinding::bind)
     private val viewModel by viewModels<LoginViewModel> { LoginViewModelFactory(LoginCoordinator) }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(false);
-    }
-
+    @ExperimentalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setNavigationListener(viewModel.navigationLiveDataField)

@@ -1,33 +1,43 @@
 package com.android.multimoduletemplate.domain.session
 
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
-class UserManager() {
+@ExperimentalCoroutinesApi
+object UserManager : CoroutineScope by CoroutineScope(Dispatchers.Default){
 
-    lateinit var user: Flow<User>
+    private val regState: RegStatus by lazy { if (hasFoundRegistrationData()) RegStatus.OLD else RegStatus.NEW }
+
+    private var _userState = MutableStateFlow<User>(User.Idle)
+
+    var userState: StateFlow<User> = _userState
 
     init {
-        user = flow {
-            emit(NotAuthenticated)
-        }.flowOn(Dispatchers.IO)
+        _userState.value = User.NotAuthenticated(regState)
     }
 
-    fun authenticate(passcode: String) {
-        user = flow {
-            emit(AuthenticatedUser("Kalyan", OnBoardingStatus.COMPLETED))
-        }.flowOn(Dispatchers.IO)
+    private fun authenticate(passcode: String) {
+        // TODO need to hit repo and get the status
+        _userState.value = User.Authenticated("Kalyan", OnBoardingStatus.COMPLETED)
     }
 
-    fun logout() {
-        user = flow {
-            emit(NotAuthenticated)
-        }.flowOn(Dispatchers.IO)
+    private fun logout() {
+        _userState.value = User.NotAuthenticated(RegStatus.OLD)
     }
 
-    val regState: RegStatus =
-        if (false) RegStatus.OLD else RegStatus.NEW
+    private fun hasFoundRegistrationData(): Boolean {
+        // TODO - need to read from sharedpreference
+        return true
+    }
+
+    fun onEvent(event: UserEvent) {
+        when (event) {
+            is UserEvent.Authenticate -> authenticate(event.password)
+            is UserEvent.Logout -> logout()
+        }
+    }
 
 }
