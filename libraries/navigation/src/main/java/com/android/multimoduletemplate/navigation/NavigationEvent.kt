@@ -9,5 +9,9 @@ import androidx.annotation.IdRes
  * @param navId = the ID to navigate too
  * @param navigationArguments: The Map of keys to values of various parameters that need to be passed into the next screen.
  */
-data class NavigationEvent(@IdRes val navId: Int, val navigationArguments: Bundle? = null) {
+data class NavigationEvent(
+    @IdRes val navId: Int,
+    val navigationArguments: Bundle? = null,
+    val navigationOption: NavigationOption? = null
+) {
 }

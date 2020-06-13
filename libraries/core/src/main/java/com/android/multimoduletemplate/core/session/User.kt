@@ -5,6 +5,7 @@ sealed class User {
     data class NotAuthenticated(val regStatus: RegStatus) : User()
     data class Authenticated(val username: String, val onBoardingStatus: OnBoardingStatus) :
         User()
+    object LoggedOut: User()
 }
 
 sealed class UserEvent {

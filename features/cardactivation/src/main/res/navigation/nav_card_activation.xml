@@ -3,22 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_card_activation"
-    app:startDestination="@id/card_activation_fragment"
+    app:startDestination="@id/cardActivationStep1Fragment"
     tools:ignore="UnusedNavigation">
 
     <fragment
-        android:id="@+id/card_activation_fragment"
-        android:name="com.android.multimoduletemplate.cardactivation.CardActivationFragment"
-        android:label="Card Activation"
-        tools:layout="@layout/fragment_card_activation">
-        <deepLink app:uri="myApp://cardActivation" />
-        <action
-            android:id="@+id/action_cardActivationFragment_to_cardActivationCompleteFragment"
-            app:destination="@id/card_activation_complete_fragment" />
+        android:id="@+id/cardActivationStep1Fragment"
+        android:name="com.android.multimoduletemplate.cardactivation.CardActivationStep1Fragment"
+        android:label="Card Activation - Step1"
+        tools:layout="@layout/fragment_card_activation_step1">
+        <deepLink app:uri="myApp://cardActivationStep1" />
     </fragment>
     <fragment
-        android:id="@+id/card_activation_complete_fragment"
-        android:name="com.android.multimoduletemplate.cardactivation.CardActivationCompleteFragment"
-        android:label="Card Activation complete"
-        tools:layout="@layout/fragment_card_activation_complete" />
+        android:id="@+id/cardActivationStep2Fragment"
+        android:name="com.android.multimoduletemplate.cardactivation.CardActivationStep2Fragment"
+        android:label="Card Activation - Step2"
+        tools:layout="@layout/fragment_card_activation_step2" />
+    <fragment
+        android:id="@+id/cardActivationStep3Fragment"
+        android:name="com.android.multimoduletemplate.cardactivation.CardActivationStep3Fragment"
+        android:label="Card Activation - Step3"
+        tools:layout="@layout/fragment_card_activation_step3" />
+    <fragment
+        android:id="@+id/cardActivationStep4Fragment"
+        android:name="com.android.multimoduletemplate.cardactivation.CardActivationStep4Fragment"
+        android:label="Card Activation - Step4"
+        tools:layout="@layout/fragment_card_activation_step4" />
+    <fragment
+        android:id="@+id/cardActivationStep5Fragment"
+        android:name="com.android.multimoduletemplate.cardactivation.CardActivationStep5Fragment"
+        android:label="Card Activation - Step5"
+        tools:layout="@layout/fragment_card_activation_step5" />
 </navigation>

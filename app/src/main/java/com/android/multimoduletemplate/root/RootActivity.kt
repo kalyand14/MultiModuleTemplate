@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -20,7 +21,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class RootActivity : AppCompatActivity() {
-    private val viewModel by viewModels<RootViewModel> { RootViewModelFactory(RootCoordinator, App.userManager!!) }
+    private val viewModel by viewModels<RootViewModel> {
+        RootViewModelFactory(
+            RootCoordinator,
+            App.userManager!!
+        )
+    }
 
     //Configure the top level fragment here otherwise the up arrow will be shown to the fragment
     private val appBarConfiguration: AppBarConfiguration by lazy {
@@ -83,7 +89,8 @@ class RootActivity : AppCompatActivity() {
         bottomNavigationView.visibility = View.GONE
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.login_fragment -> {
+                R.id.login_fragment,
+                R.id.onboarding_landing_fragment -> {
                     showHideLogoutMenu(false)
                     bottomNavigationView.visibility = View.GONE
                 }
@@ -113,7 +120,21 @@ class RootActivity : AppCompatActivity() {
     }
 
     private fun navigate(event: NavigationEvent) {
-        navController.navigate(event.navId, event.navigationArguments)
+        if (event.navigationOption?.clearStack!!) {
+            val graph = navController.navInflater.inflate(R.navigation.nav_root)
+            graph.startDestination = event.navId
+            navController.graph = graph
+        } else {
+            val navOptions = event.navigationOption?.let {
+                NavOptions.Builder().setPopUpTo(
+                    it.destinationId,
+                    it.inclusive
+
+                ).setLaunchSingleTop(it.isSingleTop)
+                    .build()
+            }
+            navController.navigate(event.navId, event.navigationArguments, navOptions)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

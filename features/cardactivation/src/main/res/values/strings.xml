@@ -1,5 +1,12 @@
 <resources>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="card_activation">Card Activation Fragment</string>
+    <string name="ca_step1">Card Activation - Step1</string>
+    <string name="ca_step2">Card Activation - Step2</string>
+    <string name="ca_step3">Card Activation - Step3</string>
+    <string name="ca_step4">Card Activation - Step4</string>
+    <string name="ca_step5">Card Activation - Step5</string>
+    <string name="next">Next</string>
+    <string name="home">Back to home</string>
+
 </resources>

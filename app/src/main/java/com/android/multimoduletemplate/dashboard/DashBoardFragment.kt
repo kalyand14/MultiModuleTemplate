@@ -1,32 +1,31 @@
 package com.android.multimoduletemplate.dashboard
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.fragment.app.viewModels
 import com.android.multimoduletemplate.R
+import com.android.multimoduletemplate.core.presentation.BaseFragment
+import com.android.multimoduletemplate.core.presentation.viewBinding
+import com.android.multimoduletemplate.databinding.FragmentDashboardBinding
+import com.android.multimoduletemplate.root.RootCoordinator
 
 /**
  * A simple [Fragment] subclass.
  */
-class DashBoardFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+class DashBoardFragment : BaseFragment(R.layout.fragment_dashboard) {
+    private val binding by viewBinding(FragmentDashboardBinding::bind)
+    private val viewModel by viewModels<DashBoardViewModel> {
+        DashBoardViewModelFactory(
+            RootCoordinator
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        view.findViewById<Button>(R.id.btn_activate_card).setOnClickListener {
-            view.findNavController().navigate(R.id.nav_card_activation)
+        setNavigationListener(viewModel.navigationLiveDataField)
+        binding.btnActivateCard.setOnClickListener {
+            viewModel.activateCard()
         }
     }
 

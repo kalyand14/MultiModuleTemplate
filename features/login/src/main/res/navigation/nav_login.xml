@@ -11,4 +11,5 @@
         android:name="com.android.multimoduletemplate.login.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login" />
+
 </navigation>

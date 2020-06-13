@@ -34,9 +34,14 @@ class RootViewModel constructor(
                 is User.NotAuthenticated -> {
                     navigateTo(
                         when (it.regStatus) {
-                            RegStatus.OLD -> RootCoordinator.loginStartDestination()
+                            RegStatus.OLD -> RootCoordinator.loginStartDestination(false)
                             RegStatus.NEW -> RootCoordinator.onBoardingStartDestination()
                         }
+                    )
+                }
+                is User.LoggedOut -> {
+                    navigateTo(
+                        RootCoordinator.loginStartDestination(true)
                     )
                 }
             }

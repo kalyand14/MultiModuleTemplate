@@ -13,6 +13,7 @@ class UserManager(private val preferenceHelper: PreferenceHelper) :
 
     companion object {
         const val KEY_REGISTERED = "key_registered"
+        const val KEY_AUTHENTICATED = "key_authenticated"
     }
 
     private val regState: RegStatus by lazy { if (hasFoundRegistrationData()) RegStatus.OLD else RegStatus.NEW }
@@ -27,15 +28,22 @@ class UserManager(private val preferenceHelper: PreferenceHelper) :
 
     private fun authenticate(passcode: String) {
         // TODO need to hit repo and get the status
+        preferenceHelper.save(KEY_AUTHENTICATED, true)
         _userState.value = User.Authenticated("Kalyan", OnBoardingStatus.COMPLETED)
+
     }
 
     private fun logout() {
-        _userState.value = User.NotAuthenticated(RegStatus.OLD)
+        preferenceHelper.save(KEY_AUTHENTICATED, false)
+        _userState.value = User.LoggedOut
     }
 
     fun createRegistration() {
         preferenceHelper.save(KEY_REGISTERED, true)
+    }
+
+    fun isLoggedIn(): Boolean {
+        return preferenceHelper.getValueBoolean(KEY_AUTHENTICATED, false)
     }
 
     private fun deleteRegistration() {
