@@ -18,7 +18,9 @@ object Versions {
     val android_x_legacy_support = "1.0.0"
     val android_x_navigation = "2.2.0"
     val android_x_lifecycle = "2.2.0"
+    val android_x_security = "1.0.0-rc02"
     val google_material = "1.1.0-alpha09"
+
 }
 
 object Deps {
@@ -47,6 +49,8 @@ object Androidx {
     val lifecycle_common = "androidx.lifecycle:lifecycle-common-java8:${Versions.android_x_lifecycle}"
     val lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.android_x_lifecycle}"
     val lifecycle_livedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.android_x_lifecycle}"
+
+    val security = "androidx.security:security-crypto:${Versions.android_x_security}"
 }
 
 object Dagger {

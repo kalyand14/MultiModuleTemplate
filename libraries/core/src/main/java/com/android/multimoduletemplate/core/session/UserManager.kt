@@ -1,5 +1,6 @@
-package com.android.multimoduletemplate.domain.session
+package com.android.multimoduletemplate.core.session
 
+import com.android.multimoduletemplate.core.data.PreferenceHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -7,7 +8,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 @ExperimentalCoroutinesApi
-object UserManager : CoroutineScope by CoroutineScope(Dispatchers.Default){
+class UserManager(private val preferenceHelper: PreferenceHelper) :
+    CoroutineScope by CoroutineScope(Dispatchers.Default) {
+
+    companion object {
+        const val KEY_REGISTERED = "key_registered"
+    }
 
     private val regState: RegStatus by lazy { if (hasFoundRegistrationData()) RegStatus.OLD else RegStatus.NEW }
 
@@ -28,15 +34,24 @@ object UserManager : CoroutineScope by CoroutineScope(Dispatchers.Default){
         _userState.value = User.NotAuthenticated(RegStatus.OLD)
     }
 
+    fun createRegistration() {
+        preferenceHelper.save(KEY_REGISTERED, true)
+    }
+
+    private fun deleteRegistration() {
+        preferenceHelper.clearSharedPreference()
+        _userState.value = User.NotAuthenticated(RegStatus.NEW)
+    }
+
     private fun hasFoundRegistrationData(): Boolean {
-        // TODO - need to read from sharedpreference
-        return true
+        return preferenceHelper.getValueBoolean(KEY_REGISTERED, false)
     }
 
     fun onEvent(event: UserEvent) {
         when (event) {
             is UserEvent.Authenticate -> authenticate(event.password)
             is UserEvent.Logout -> logout()
+            is UserEvent.UnRegister -> deleteRegistration()
         }
     }
 

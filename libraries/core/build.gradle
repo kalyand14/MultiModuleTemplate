@@ -59,6 +59,8 @@ dependencies {
     api Androidx.lifecycle_viewmodel
     api Androidx.lifecycle_livedata
 
+    api Androidx.security
+
     // JVM Unit testing
     testImplementation Jvm.junit
     //Instrumentation testing

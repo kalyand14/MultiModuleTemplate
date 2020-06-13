@@ -3,7 +3,7 @@ package com.android.multimoduletemplate.root
 import androidx.lifecycle.viewModelScope
 import com.android.multimoduletemplate.core.presentation.BaseViewModel
 import com.android.multimoduletemplate.core.presentation.SingleLiveEvent
-import com.android.multimoduletemplate.domain.session.*
+import com.android.multimoduletemplate.core.session.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.onEach
 @ExperimentalCoroutinesApi
 class RootViewModel constructor(
     private val coordinator: RootCoordinator,
-    private val userManager: UserManager? = UserManager
+    private val userManager: UserManager
 ) : BaseViewModel() {
 
     val loggedOutEvent = SingleLiveEvent<Void>()
@@ -21,7 +21,7 @@ class RootViewModel constructor(
     }
 
     fun subscribeObserver() {
-        userManager?.userState?.onEach {
+        userManager.userState.onEach {
             when (it) {
                 is User.Authenticated -> {
                     navigateTo(
@@ -40,11 +40,11 @@ class RootViewModel constructor(
                     )
                 }
             }
-        }?.launchIn(viewModelScope)
+        }.launchIn(viewModelScope)
     }
 
     fun logout() {
-        userManager?.onEvent(UserEvent.Logout)
+        userManager.onEvent(UserEvent.Logout)
     }
 
 

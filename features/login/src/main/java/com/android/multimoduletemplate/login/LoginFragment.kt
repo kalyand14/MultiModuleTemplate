@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.android.multimoduletemplate.core.App
 import com.android.multimoduletemplate.core.presentation.BaseFragment
 import com.android.multimoduletemplate.core.presentation.viewBinding
 import com.android.multimoduletemplate.login.databinding.FragmentLoginBinding
@@ -16,7 +17,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 class LoginFragment : BaseFragment(R.layout.fragment_login) {
 
     private val binding by viewBinding(FragmentLoginBinding::bind)
-    private val viewModel by viewModels<LoginViewModel> { LoginViewModelFactory(LoginCoordinator) }
+    private val viewModel by viewModels<LoginViewModel> { LoginViewModelFactory(LoginCoordinator, App.userManager!!) }
 
     @ExperimentalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -12,6 +12,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android.multimoduletemplate.R
+import com.android.multimoduletemplate.core.App
 import com.android.multimoduletemplate.navigation.LiveNavigationField
 import com.android.multimoduletemplate.navigation.NavigationEvent
 import com.google.android.material.appbar.MaterialToolbar
@@ -19,7 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class RootActivity : AppCompatActivity() {
-    private val viewModel by viewModels<RootViewModel> { RootViewModelFactory(RootCoordinator) }
+    private val viewModel by viewModels<RootViewModel> { RootViewModelFactory(RootCoordinator, App.userManager!!) }
 
     //Configure the top level fragment here otherwise the up arrow will be shown to the fragment
     private val appBarConfiguration: AppBarConfiguration by lazy {

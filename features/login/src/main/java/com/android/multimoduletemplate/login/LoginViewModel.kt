@@ -1,8 +1,8 @@
 package com.android.multimoduletemplate.login
 
 import com.android.multimoduletemplate.core.presentation.BaseViewModel
-import com.android.multimoduletemplate.domain.session.UserEvent
-import com.android.multimoduletemplate.domain.session.UserManager
+import com.android.multimoduletemplate.core.session.UserEvent
+import com.android.multimoduletemplate.core.session.UserManager
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 class LoginViewModel(private val coordinator: LoginCoordinator, val userManager: UserManager) : BaseViewModel() {

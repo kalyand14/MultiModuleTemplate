@@ -1,7 +1,7 @@
 package com.android.multimoduletemplate.root
 
 import com.android.multimoduletemplate.dashboard.DashBoardCoordinator
-import com.android.multimoduletemplate.domain.session.UserManager
+import com.android.multimoduletemplate.core.session.UserManager
 import com.android.multimoduletemplate.login.LoginCoordinator
 import com.android.multimoduletemplate.navigation.NavigationDestination
 import com.android.multimoduletemplate.onboarding.OnBoardingCoordinator
@@ -9,7 +9,6 @@ import com.android.multimoduletemplate.onboarding.OnBoardingCoordinator
 
 object RootCoordinator {
 
-    val userManager: UserManager = UserManager
     private val loginCoordinator: LoginCoordinator = LoginCoordinator
     private val onBoardCoordinator: OnBoardingCoordinator = OnBoardingCoordinator
     private val dashBoardCoordinator: DashBoardCoordinator = DashBoardCoordinator

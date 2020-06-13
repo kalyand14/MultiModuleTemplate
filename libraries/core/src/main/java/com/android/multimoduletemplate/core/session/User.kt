@@ -1,4 +1,4 @@
-package com.android.multimoduletemplate.domain.session
+package com.android.multimoduletemplate.core.session
 
 sealed class User {
     object Idle : User()
@@ -10,4 +10,6 @@ sealed class User {
 sealed class UserEvent {
     data class Authenticate(val password: String) : UserEvent()
     object Logout : UserEvent()
+    object UnRegister : UserEvent()
+
 }

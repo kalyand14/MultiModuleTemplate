@@ -2,5 +2,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="profile_fragment">Profile Fragment</string>
+    <string name="delete_registration">Delete registration</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.android.multimoduletemplate.domain.session
+package com.android.multimoduletemplate.core.session
 
 enum class OnBoardingStatus(status: Int) {
     NOT_STARTED(0),
